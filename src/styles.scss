@@ -1,0 +1,170 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import "~bootstrap/dist/css/bootstrap.css";
+/*RG3 */
+$color-overlay: hsla(0, 0%, 0%, 0.702);
+//modal from top
+$dialog-position-top: 5%;
+$dialog-position-left: 5%;
+// colors
+$dark: #333030;
+$ocean: #2b90d9;
+$grass: #3ac569;
+$snow: #fff;
+$salmon: #f32c52;
+$sun: #feee7d;
+$alge: #79a8a9;
+$flower: #353866;
+$coal: #202129;
+$coal-dust: #edeeee;
+$primary:rgb(103, 58, 183);
+
+
+//dialog modal RG3
+// Color of overlay background
+$color-overlay: rgba(0, 0, 0, .5) !default;
+
+// Position of dialog
+$dialog-position-top: 1.75rem !default;
+
+// Transition time
+// !! The same as the hideDelay variable defined in ngx-smart-modal.component.ts
+$transition-duration: 500ms !default;
+
+// Transition effect
+// linear | ease | ease-in | ease-out | ease-in-out
+$transition-timing-function: ease-in-out !default;
+// fin dialogmodal
+
+//animations
+
+//fin animation
+@import "~ngx-smart-modal/ngx-smart-modal";
+
+//materialize
+@import "./assets/materialize/css/materialize.min.css";
+body { 
+    font-family: Roboto, Arial, sans-serif;
+
+  }
+  
+
+  
+.version-info {
+    font-size: 8pt;
+    float: right;
+  }
+
+  
+
+// Dialog modal
+.nsm-dialog {
+  position: relative;
+  opacity: 1;
+  visibility: visible;
+  min-height: 200px;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  pointer-events: none;
+
+  // When dialog is closing
+  &.nsm-dialog-close {
+    opacity: 0;
+  }
+
+  &.nsm-centered {
+    display: flex;
+    align-items: center;
+    min-height: calc(100% - (1.75rem * 2));
+  }
+}
+
+
+
+
+
+.nsm-dialog[class*=nsm-dialog-animation-] {
+  transition: transform $transition-duration $transition-timing-function, opacity $transition-duration;
+}
+
+// Left to right (ltr)
+.nsm-dialog-animation-ltr {
+  transform: translate3d(-50%, 0, 0);
+
+  &.nsm-dialog-open {
+    transform: translate3d(0, 0, 0);
+  }
+
+  &.nsm-dialog-close {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+// Right to left (ltr)
+.nsm-dialog-animation-rtl {
+  transform: translate3d(50%, 0, 0);
+
+  &.nsm-dialog-open {
+    transform: translate3d(0, 0, 0);
+  }
+
+  &.nsm-dialog-close {
+    transform: translate3d(50%, 0, 0);
+  }
+}
+
+// Top to bottom (ttb)
+.nsm-dialog-animation-ttb {
+  transform: translate3d(0, -50%, 0);
+
+  &.nsm-dialog-open {
+    transform: translate3d(0, 0, 0);
+  }
+
+  &.nsm-dialog-close {
+    transform: translate3d(0, -50%, 0);
+  }
+}
+
+// Bottom to top (btt)
+.nsm-dialog-animation-btt {
+  transform: translate3d(0, 50%, 0);
+
+  &.nsm-dialog-open {
+    transform: translate3d(0, 0, 0);
+  }
+
+  &.nsm-dialog-close {
+    transform: translate3d(0, 50%, 0);
+  }
+}
+
+
+ 
+
+// Body if modal is opened
+body.dialog-open {
+  overflow: hidden;
+}
+
+
+
+// Close button in modal
+.nsm-dialog-btn-close {
+  border: 0;
+  background: none;
+  color: #2d2d2d;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+
+
+
+
+
+

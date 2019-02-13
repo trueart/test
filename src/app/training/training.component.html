@@ -1,0 +1,116 @@
+
+
+  <mat-tab-group mat-stretch-tabs animationDuration="1200ms" class="basic-container stretched-tabs mat-elevation-z4">
+    <mat-tab label="Cours">
+        <section fxFlex.xs="100%" fxLayout="col" fxLayoutAlign="center" class="decoration">
+            <div class="form-group" fxFlex.xs="100%" class="row" fxLayoutAlign="center">
+                <div class="row ">
+                    <div class="input-group col-xs-8 col-sm-8 col-lg-8">
+                        <select class="custom-select" name="cours" [(ngModel)]="CSchapexoselected" (change)="selectChangeHandler($event.target.value)" placeholder="-- Sélectionner une section de cours --">
+                            <option value="hide">-- Sélectionner une section de cours --</option>
+							<option *ngFor="let lesson of cours" [value]="lesson.chapitre_url">
+                                   {{lesson.chapitre}}<!--span class="new badge" data-badge-caption="custom caption">1</span!-->
+                            </option>
+                        </select>
+                        <div fxHide.lt-sm class="input-group-addon input-group-button col-xs-4 col-sm-4 col-lg-4">
+                            <button type="button" class="button -primary" (click)="videoModal.open()">Visualiser</button>
+                        </div>   
+                        <div fxHide.gt-xs class="input-group-addon input-group-button">
+                            <a class="btn-floating btn-small blue pulse" (click)="videoModal.open()"><i class="material-icons">videocam</i></a>
+                        </div>                             
+                    </div>
+                </div>
+                <div class="row ">
+                        <div class="card large col-xs-12 col-sm-12 col-lg-12">
+                                <img class="materialboxed" width="720" [src]="getImageSrc()">
+                        </div>
+                </div>
+            </div>			
+         </section>
+    </mat-tab> 
+
+    <mat-tab label="Exercices">
+            <section fxFlex.xs="100%" fxLayout="col" fxLayoutAlign="center" class="decoration">
+                    <div class="form-group" fxFlex.xs="100%" class="row" fxLayoutAlign="center">
+                        <div class="row ">
+                            <div class="input-group col-xs-8 col-sm-8 col-lg-8">
+                                <select class="custom-select " name="cours2" [(ngModel)]="CSchapexoselected" (change)="selectChangeHandler($event.target.value)" placeholder="-- Sélectionner une section de cours --">
+                                        <option value="hide">-- Sélectionner un exercice --</option>
+                                        <option *ngFor="let exo of exercice" [value]="exo.exercice_url">
+                                               {{exo.exercice}}
+                                        </option>
+                                </select>
+                                <div fxHide.lt-sm class="input-group-addon input-group-button">
+                                        <button type="button" class="button -primary" (click)="videoModal.open()">Visualiser la solution</button>
+                                </div>   
+                                <div fxHide.gt-xs class="input-group-addon input-group-button">
+                                    <a class="btn-floating btn-small blue pulse" (click)="videoModal.open()"><i class="material-icons">videocam</i></a>
+                                </div>                              
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="card large col-xs-12 col-sm-12 col-lg-12">
+                                <img class="materialboxed" width="650" [src]="getImageSrc()">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+          
+   
+        <!--section>
+            <div class="container">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe [src]="getEmbedUrl()" scrolling="no"
+                                 frameborder="0" allowfullscreen="true" webkitallowfullscreen="false" 
+                                 mozallowfullscreen="true"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section!-->                
+    </mat-tab>
+</mat-tab-group>
+
+                                                      		
+
+<!-- Modal video events -->
+<ngx-smart-modal #videoModal
+                identifier="videoModal"
+                customClass="nsm-dialog-animation-btt medium-modal "
+                [closable]="true"
+                [dismissable]="false"
+                [escapable]="false">
+    <div class="video-container responsive-video" controls>
+        <iframe *ngIf="videoModal.isVisible()"
+            #rickroll
+            width="853"
+            height="480"
+            style="max-width: 100%;"
+            [src]="getEmbedUrl()"
+            frameborder="0"
+            allowfullscreen></iframe>
+    </div>
+</ngx-smart-modal> 
+
+                
+                <!--RG3 -->
+                <!--button class="button -regular"
+                (click)="modalData.open()">Visionner la solution</button>  
+                
+                <ngx-smart-modal #modalData
+                                identifier="modalData"
+                                customClass="nsm-dialog-animation-ltr">
+                    <h1>La solution</h1>
+                    <p>
+                        <strong>Mettre une photo
+                            <code>NgxSmartModalService</code>. It was set from the
+                            <code>AppComponent</code>!</strong>
+                    </p>
+                    <div *ngIf="modalData.hasData()">
+                        <pre>{{ modalData.getData() | json }}</pre>
+                    </div>
+                    <button class="button -dark"
+                            (click)="modalData.close()">Close</button>
+                </ngx-smart-modal!-->   

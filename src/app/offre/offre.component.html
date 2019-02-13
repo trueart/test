@@ -1,0 +1,62 @@
+<section class="slider">
+        <ul class="slides">
+          <li>
+            <img [src]="images[0]"> <!-- random image -->
+            <div class="caption center-align">
+              <h3>Comment progresser dans une matière!</h3>
+              <h5 class="light grey-text text-lighten-3">C'est d'abord transformer cette corvée en loisir.</h5>
+            </div>
+          </li>
+          <li>
+            <img [src]="images[1]"> <!-- random image -->
+            <div class="caption left-align">
+              <h3>MTUBE est chez vous!</h3>
+              <h5 class="light grey-text text-lighten-3">c'est un professeur expérimenté chez vous! un échange par correspondance en cas de besoin</h5>
+            </div>
+          </li>
+          <li>
+            <img [src]="images[2]"> <!-- random image -->
+            <div class="caption right-align">
+              <h3>MTUBE booste votre potentiel</h3>
+              <h5 class="light grey-text text-lighten-3">Réussir son examen, c'est accessoire. On vous prépare surtout pour la suite!</h5>
+            </div>
+          </li>
+          <li>
+            <img src="https://lorempixel.com/580/250/nature/4"> <!-- random image -->
+            <div class="caption center-align">
+              <h3>Régularité et maturité!</h3>
+              <h5 class="light grey-text text-lighten-3">Ces deux combinés représentent le fameux DECLIC tant recherché par les élèves des CPGE.</h5>
+            </div>
+          </li>
+        </ul> 
+</section>
+<section class="section section-idon grey lighten-4 center">
+    <div class="container">
+        <div class="row">
+            <div class="row s12 m4">
+                <div class="card-panel">
+                    <a class="btn-floating btn-large cyan modal-trigger pulse"  (click)="classicModal.open()"><i class="material-icons large">sentiment_satisfied_alt</i></a>
+                    <h4>Offre complète à 1 €</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <!-- Classic modal -->
+    <ngx-smart-modal #classicModal
+          [identifier]="'classicModal'"
+          [autostart]="false">
+          <div>
+              <h4>Inscription </h4>
+              <p>Envoyer votre nom, prénom, <b>email</b>, numéro de téléphone sur papier libre.</p>
+              <p>ainsi qu'un chèque de <b>1 €</b> à l'ordre de MTUBE à l'adresse suivante : </p>
+              <h6>MTUBE - 6 rue des bochoux 92150 Suresnes</h6>
+              <br>
+              <p><b>Vous recevrez vos identifiants par email et sur votre mobile une fois l'inscription effectuée</b></p>
+          </div>
+          <button class="button -dark center" (click)="classicModal.close()">Ok</button>
+    </ngx-smart-modal>
+
+</section>

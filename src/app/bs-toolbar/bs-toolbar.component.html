@@ -1,0 +1,49 @@
+<div class="navbar">
+    <nav class="blue">    
+      <div class="container">
+        <div class="nav-wrapper">
+          <div fxFlex fxLayout fxLayoutAlign="flex-start center" fxLayoutGap="5px">
+              <div class="column">
+                  <a class="navbar-brand" routerLink="/">mTube</a>
+              </div>
+              <div fxHide.xs  id="navbarSupportedContent" class="column"> 
+                <a class="navbar-brand" routerLink="/offre" >Notre offre</a>
+              </div>
+              <div class="column">
+                <a *ngIf="authenticationService.isLoggedIn()" class="btn-floating btn-large cyan pulse" (click)="onToggle()"><i class="material-icons">menu</i></a>
+                <a *ngIf="!authenticationService.isLoggedIn()" class="btn-floating btn-small  blue" (click)="onToggle()"><i class="material-icons">menu</i></a>
+              </div>      
+              <div fxFlex fxLayout fxLayoutAlign="flex-end" fxLayout="row" fxLayoutGap="40px">
+                <div>
+                  <a *ngIf="authenticationService.isLoggedIn() && authenticationService.currentUserValue ==true" class="navbar-brand" routerLink="/training" >Admin</a>
+                </div>
+                <div fxHide.gt-xs id="navbarSupportedContent" class="column"> 
+                    <a *ngIf="!authenticationService.isLoggedIn()" class="btn-floating btn-small blue pulse" routerLink="/login"><i class="material-icons">input</i></a>
+                </div> 
+                <div fxHide.lt-sm id="navbarSupportedContent" class="column"> 
+                    <a class="navbar-brand" *ngIf="!authenticationService.isLoggedIn()" routerLink="/login" >Connexion</a>
+                </div>     
+                <div fxHide.gt-xs id="navbarSupportedContent" class="column"> 
+                    <a *ngIf="authenticationService.isLoggedIn()" class="btn-floating btn-small blue pulse" (click)="authenticationService.logout()" routerLink="/login"><i class="material-icons">eject</i></a> 
+                </div>                                             
+                <div fxHide.lt-sm id="navbarSupportedContent" class="column">
+                    <a class="navbar-brand"*ngIf="authenticationService.isLoggedIn()" (click)="authenticationService.logout()" routerLink="/login">Déconnexion</a>
+                </div>
+              </div>
+          </div>            
+        </div>
+      </div>
+    </nav>
+</div>
+              
+                  <!--li *ngIf="!authenticationService.isLoggedIn()" fxLayout="row" class="dropdown-item" routerLink="/signup">Déconnexion</nav>
+                    <mat-icon>face</mat-icon>
+                    <span class="dropdown-item">Inscription</span>
+                  </li>
+                  <li *ngIf="authenticationService.isLoggedIn()" (click)="authenticationService.logout()">
+                    <mat-icon>eject</mat-icon>
+                    <span class="dropdown-item">Déconnexion</span>
+                  </li>              
+              </div!-->
+
+

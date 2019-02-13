@@ -1,0 +1,48 @@
+<section class="login-form ">
+  <form  fxLayout="column" fxLayoutAlign="center center" #f="ngForm" (ngSubmit)="onLogin(f)" >
+    <div id="container_demo" >
+    <div id="wrapper">
+      <div id="login" class="animate form">
+            <h1>Identifiez-vous</h1> 
+            
+
+                <label for="username" class="uname" data-icon="u" > Votre email </label>
+                <input ngModel 
+                       email
+                       required 
+                       id="email" 
+                       name="email" 
+                       type="text" 
+                       #emailinput="ngModel"
+                       placeholder="Votre email de correspondance"/>
+                <div *ngIf="invalidLogin" class="alert alert-danger">Email ou mot de passe invalide!</div>
+
+            
+                <label for="password" class="youpasswd" data-icon="p"> Votre mot de passe</label>
+                <input ngModel 
+                    id="password"
+                    name="password" 
+                    matInput 
+                    placeholder="eg. X8df!90EO"
+                    type="password" 
+                    value=""
+                    required
+                    minlength = "8"
+                    #ngLeng="ngModel"> 
+
+            <p class="login button"> 
+                <input type="submit" [disabled]="f.invalid" value="Login" /> 
+            </p>
+            <!--div class=" row">
+              <button type="submit"  color="primary" [disabled]="f.invalid">Connecter</button>   
+            </div!-->            
+            <!--p class="change_link">
+            Not a member yet ?
+            <a href="#toregister" class="to_register">Join us</a>
+            </p!-->
+          </div>
+        </div>
+      </div>
+  </form>
+</section>
+

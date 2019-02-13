@@ -1,0 +1,12 @@
+<mat-nav-list (click)="onClose()">
+  <section><mat-icon>assignment</mat-icon>Terminale S
+    <div *ngFor="let mn of menu; let i = index"  fxLayout="row">
+          <mat-icon>create</mat-icon>
+          <a  style="cursor: pointer" 
+              [routerLink]="['/training']" 
+              [queryParams]="{ page: menuCode[i] }" 
+              [routerLinkActive]="['is-active']">{{mn}}</a>
+             
+    </div>
+  </section>
+</mat-nav-list>

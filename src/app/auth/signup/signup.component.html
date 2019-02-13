@@ -1,0 +1,56 @@
+<section class="signup-form ">
+    <form  fxLayout="column" fxLayoutAlign="center center" #f="ngForm" (ngSubmit)="onSignup(f)" >
+      <mat-form-field>
+        <input ngModel 
+               name="nom" 
+               matInput 
+               placeholder="Votre nom"
+               Spellcheck="false" 
+               type="text" 
+               value="">
+      </mat-form-field> 
+      <mat-form-field>
+        <input ngModel 
+               name="prenom" 
+               matInput 
+               placeholder="Votre prénom" 
+               Spellcheck="false"
+               type="text" 
+               value="">
+      </mat-form-field> 	
+      <mat-form-field>
+        <input ngModel 
+               email
+               required
+               name="email" 
+               matInput 
+               placeholder="Votre email de correspondance" 
+               Spellcheck="false"
+               type="text" 
+               value=""
+               #emailinput="ngModel">
+               <mat-error *ngIf="!emailinput.hasError('required')">email invalide!</mat-error> 
+               <mat-error *ngIf="emailinput.hasError('required')">Veuillez renseigner votre email!</mat-error> 
+      </mat-form-field>         
+      <mat-form-field>
+        <input ngModel 
+              name="password" 
+              matInput 
+              placeholder="Mot de passe" 
+              type="password" 
+              value=""
+              required
+              minlength = "8"
+              #ngLeng="ngModel">
+             <mat-hint align="end"> {{ngLeng.value?.length}}/ 8 caractères</mat-hint> 
+             <mat-error *ngIf="!ngLeng.hasError()">Mot de passe invalide!</mat-error>
+      </mat-form-field>  
+      <button type="submit" mat-raised-button  color="primary" [disabled]="f.invalid">Connecter</button>
+      <ul *ngIf="invalidSignup.length > 0">
+        <h2 class="alert alert-danger">{{invalidSignup}}</h2>
+      </ul>
+      
+    </form>
+  </section>
+
+  
