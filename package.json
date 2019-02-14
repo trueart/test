@@ -7,9 +7,11 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+	"deploy": "gh-pages -d dist"
   },
   "private": true,
+  "homepage": "https://trueart.github.io/test/",
   "dependencies": {
     "@angular/animations": "^7.1.4",
     "@angular/cdk": "^7.2.0",
