@@ -11,7 +11,7 @@
 	"deploy": "gh-pages -d dist"
   },
   "private": true,
-  "homepage": "https://trueart.github.io/test/",
+  "homepage": "https://trueart.github.io/trueart/",
   "dependencies": {
     "@angular/animations": "^7.1.4",
     "@angular/cdk": "^7.2.0",
